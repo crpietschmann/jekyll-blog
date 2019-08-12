@@ -23,6 +23,10 @@ baseurl: "/jekyll-blog" # the subpath of your site, e.g. /blog
 url: "https://crpietschmann.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: /post/:title # /post/:year/:month/:day/:title
+permalinks:
+  tag: '/tag/:name/'
+  category: '/category/:name/'
+  
 excerpt_separator: <!--more-->
 
 #category_path: "/category"
