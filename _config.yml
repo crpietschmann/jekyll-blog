@@ -26,7 +26,7 @@ permalink: /post/:title # /post/:year/:month/:day/:title
 excerpt_separator: <!--more-->
 
 #category_path: "/category"
-category_layout: "category.html"
+#category_layout: "category.html"
 paginate: 5 # <-- turn on pagination with 5 posts per page
 
 twitter_username: crpietschmann
@@ -43,7 +43,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-paginate
-  - jekyll-category-pages
+  - jekyll-archives
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
