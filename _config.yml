@@ -28,6 +28,9 @@ permalinks:
   category: '/category/:name/'
 
 layouts:
+  year: 'archive-year'
+  month: 'archive-month'
+  day: 'archive-day'
   category: 'category'
   tag: 'tag'
 
