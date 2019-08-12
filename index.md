@@ -11,7 +11,7 @@ layout: default
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">{{ post.title }}</h1>
       <p class="lead my-3">{% if post.description %}{{ post.description }}{% else %}{{ site.description }}{% endif %}</p>
-      <p class="lead mb-0"><a href="{{ post.url }}" class="text-white font-weight-bold">Continue reading...</a></p>
+      <p class="lead mb-0"><a href="{{ post.url | prepend: site.baseurl }}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
     {% endfor %}
   </div>
@@ -25,7 +25,7 @@ layout: default
           <h3 class="mb-0">{{ post.title }}</h3>
           <div class="mb-1 text-muted">{{ post.date | date: "%b %-d, %Y" }}</div>
           <p class="card-text mb-auto">{% if post.description %}{{ post.description }}{% else %}{{ site.description }}{% endif %}</p>
-          <a href="{{ post.url }}" class="stretched-link">Continue reading</a>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
@@ -44,7 +44,7 @@ layout: default
       </h3>
       {% for post in site.posts limit: 5 %}
           <div class="blog-post">
-            <h1 class="blog-post-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+            <h1 class="blog-post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
             <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% else %} • {{ site.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
             {{ post.content }}
           </div><!-- /.blog-post -->
