@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <div class="blog-post">
+                <h1 class="blog-post-title">{{ page.title }}</h1>
+                <p class="blog-post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% else %} • {{ site.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+
+                {{ content }}
+            </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+        {% include sidebar.html %}
+    </div><!-- /.row -->
+</main><!-- /.container -->
