@@ -26,7 +26,11 @@ permalink: /post/:title # /post/:year/:month/:day/:title
 permalinks:
   tag: '/tag/:name/'
   category: '/category/:name/'
-  
+
+layouts:
+  category: 'category'
+  tag: 'tag'
+
 excerpt_separator: <!--more-->
 
 #category_path: "/category"
