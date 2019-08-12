@@ -2,7 +2,7 @@
 layout: post
 title:  "Sample blog post 4"
 date:   2017-01-01 17:00:19 -0400
-categories: jekyll update
+categories: jekyll Update
 author: Mark
 ---
 
