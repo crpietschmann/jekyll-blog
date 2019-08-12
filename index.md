@@ -50,7 +50,7 @@ layout: default
             <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% else %} • {{ site.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
             {{ post.content }}
           </div><!-- /.blog-post -->
-      {% endfor %>
+      {% endfor %}
     </div><!-- /.blog-main -->
     {% include sidebar.html %}
   </div><!-- /.row -->
