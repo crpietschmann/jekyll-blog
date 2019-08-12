@@ -36,6 +36,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-category-pages
+  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
