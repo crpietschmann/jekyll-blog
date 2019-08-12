@@ -17,7 +17,7 @@ layout: default
   </div>
 
   <div class="row mb-2">
-    {% for post in site.posts offset: 1 limit: 2 %}
+    {% for post in site.posts limit: 2 %}
     <div class="col-md-6">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
@@ -44,7 +44,7 @@ layout: default
         Recent Posts
       </h3>
       -->
-      {% for post in site.posts offset: 3 limit: 5 %}
+      {% for post in site.posts limit: 5 %}
           <div class="blog-post">
             <h1 class="blog-post-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
             <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% else %} • {{ site.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
