@@ -47,6 +47,8 @@ layout: default
             <h1 class="blog-post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
             <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% else %} • {{ site.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
             {{ post.excerpt }}
+            <br/>
+            <a href="{{ post.url | prepend: site.baseurl }}">read more</a>
           </div><!-- /.blog-post -->
       {% endfor %}
     </div><!-- /.blog-main -->
