@@ -4,7 +4,6 @@ title:  "Sample blog post 4"
 date:   2017-01-01 17:00:19 -0400
 categories: jekyll update
 author: Mark
-description: This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
 ---
 
 This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.

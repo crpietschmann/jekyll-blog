@@ -22,6 +22,9 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/jekyll-blog" # the subpath of your site, e.g. /blog
 url: "https://crpietschmann.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
+permalink: /post/:title # /post/:year/:month/:day/:title
+excerpt_separator: <!--more-->
+
 twitter_username: crpietschmann
 github_username:  crpietschmann
 facebook_username: crpietschmann
@@ -31,7 +34,6 @@ author: Chris Pietschmann # default author to list for posts
 
 # Build settings
 markdown: kramdown
-permalink: /post/:title # /post/:year/:month/:day/:title
 plugins:
   - jekyll-feed
   - jekyll-redirect-from

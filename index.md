@@ -10,7 +10,7 @@ layout: default
     {% for post in site.posts limit: 1 %}
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">{{ post.title }}</h1>
-      <p class="lead my-3">{% if post.description %}{{ post.description }}{% else %}{{ site.description }}{% endif %}</p>
+      <p class="lead my-3">{% if post.excerpt %}{{ post.excerpt | truncate 100 "..." }}{% endif %}</p>
       <p class="lead mb-0"><a href="{{ post.url | prepend: site.baseurl }}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
     {% endfor %}
@@ -24,7 +24,7 @@ layout: default
           <strong class="d-inline-block mb-2 text-primary">{{ post.categories[0] }}</strong>
           <h3 class="mb-0">{{ post.title }}</h3>
           <div class="mb-1 text-muted">{{ post.date | date: "%b %-d, %Y" }}</div>
-          <p class="card-text mb-auto">{% if post.description %}{{ post.description }}{% else %}{{ site.description }}{% endif %}</p>
+          <p class="card-text mb-auto">{% if post.excerpt %}{{ post.excerpt | truncate 100 "..." }}{% endif %}</p>
           <a href="{{ post.url | prepend: site.baseurl }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
@@ -46,7 +46,7 @@ layout: default
           <div class="blog-post">
             <h1 class="blog-post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
             <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% else %} • {{ site.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
-            {{ post.content }}
+            {{ post.excerpt }}
           </div><!-- /.blog-post -->
       {% endfor %}
     </div><!-- /.blog-main -->
