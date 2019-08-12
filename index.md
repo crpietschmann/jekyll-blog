@@ -39,9 +39,11 @@ layout: default
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-8 blog-main">
+      <!--
       <h3 class="pb-4 mb-4 font-italic border-bottom">
         Recent Posts
       </h3>
+      -->
       {% for post in site.posts offset: 3 limit: 5 %}
           <div class="blog-post">
             <h1 class="blog-post-title">{{ post.title }}</h1>
