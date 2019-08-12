@@ -40,6 +40,17 @@ plugins:
   - jekyll-sitemap
   - jekyll-archives
 
+jekyll-archives:
+  enabled:
+    - tags
+    - categories
+  layout:
+    tag: tag
+    category: category
+  permalinks:
+    tag: '/tag/:name/'
+    category: '/category/:name/'
+    
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
