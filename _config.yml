@@ -31,6 +31,7 @@ author: Chris Pietschmann # default author to list for posts
 
 # Build settings
 markdown: kramdown
+permalink: /post/:title # /post/:year/:month/:day/:title
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
