@@ -23,22 +23,7 @@ baseurl: "/jekyll-blog" # the subpath of your site, e.g. /blog
 url: "https://crpietschmann.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: /post/:title # /post/:year/:month/:day/:title
-permalinks:
-  tag: '/tag/:name/'
-  category: '/category/:name/'
-
-layouts:
-  year: 'archive-year'
-  month: 'archive-month'
-  day: 'archive-day'
-  category: 'category'
-  tag: 'tag'
-
 excerpt_separator: <!--more-->
-
-#category_path: "/category"
-#category_layout: "category.html"
-paginate: 5 # <-- turn on pagination with 5 posts per page
 
 twitter_username: crpietschmann
 github_username:  crpietschmann
@@ -53,7 +38,6 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-sitemap
-  - jekyll-paginate
   - jekyll-archives
 
 # Exclude from processing.
