@@ -10,7 +10,7 @@ layout: default
     {% for post in site.posts limit: 1 %}
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">{{ post.title }}</h1>
-      <p class="lead my-3">{{ post.description }}</p>
+      <p class="lead my-3">{% if post.description %}{{ post.description }}{% else %}{{ site.description }}{% endif %}</p>
       <p class="lead mb-0"><a href="{{ post.url }}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
     {% endfor %}
@@ -24,7 +24,7 @@ layout: default
           <strong class="d-inline-block mb-2 text-primary">{{ post.categories[0] }}</strong>
           <h3 class="mb-0">{{ post.title }}</h3>
           <div class="mb-1 text-muted">{{ post.date | date: "%b %-d, %Y" }}</div>
-          <p class="card-text mb-auto">{{ post.description }}</p>
+          <p class="card-text mb-auto">{% if post.description %}{{ post.description }}{% else %}{{ site.description }}{% endif %}</p>
           <a href="{{ post.url }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
