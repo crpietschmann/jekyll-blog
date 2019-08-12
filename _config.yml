@@ -25,7 +25,7 @@ url: "https://crpietschmann.github.io" # the base hostname & protocol for your s
 permalink: /post/:title # /post/:year/:month/:day/:title
 excerpt_separator: <!--more-->
 
-category_path: "/category"
+#category_path: "/category"
 category_layout: "category.html"
 paginate: 5 # <-- turn on pagination with 5 posts per page
 
