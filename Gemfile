@@ -9,4 +9,7 @@ elsif ENV["JEKYLL_VERSION"]
   gem "jekyll", ENV["JEKYLL_VERSION"]
 end
 
+gem 'jekyll-feed'
+gem 'jekyll-redirect-from'
+gem 'jekyll-sitemap'
 gem 'jekyll-archives'
