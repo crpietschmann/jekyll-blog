@@ -13,3 +13,6 @@ gem 'jekyll-feed'
 gem 'jekyll-redirect-from'
 gem 'jekyll-sitemap'
 gem 'jekyll-archives'
+gem 'jekyll-sass-converter', '~> 2.2'
+
+gem "webrick", "~> 1.9"
