@@ -6,11 +6,12 @@ sitemap: false
 [
   {% assign all = site.posts | concat: site.pages %}
   {% for doc in all %}
-    {% assign title = doc.title | to_s %}
-    {% if title != '' and doc.url and doc.url != '/search.json' %}
+    {% assign title = doc.title | append: '' %}
+    {% assign url = doc.url | append: '' %}
+    {% if title != '' and url != '' and url != '/search.json' and (url contains 'sitemap.xml') == false %}
       {
         "title": {{ title | jsonify }},
-  "url": {{ doc.url | prepend: site.baseurl | jsonify }},
+        "url": {{ url | prepend: site.baseurl | jsonify }},
         "date": {{ doc.date | date_to_xmlschema | jsonify }},
         "categories": {{ doc.categories | default: empty | jsonify }},
         "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}
