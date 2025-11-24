@@ -10,7 +10,7 @@ sitemap: false
     {% if title != '' and doc.url and doc.url != '/search.json' %}
       {
         "title": {{ title | jsonify }},
-        "url": {{ (doc.url | prepend: site.baseurl) | jsonify }},
+  "url": {{ doc.url | prepend: site.baseurl | jsonify }},
         "date": {{ doc.date | date_to_xmlschema | jsonify }},
         "categories": {{ doc.categories | default: empty | jsonify }},
         "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}

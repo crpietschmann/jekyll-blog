@@ -27,11 +27,18 @@
 <div class="p-4">
     <h4 class="fst-italic">Categories</h4>
     <ol class="list-unstyled mb-0">
-        {% for category in site.categories %}
-        <li><a href="{{ site.baseurl }}/category/{{ category | first | url_encode }}/">{{ category | first | capitalize }}</a></li>
+        {% assign categories_list = site.categories | sort %}
+        {% for category in categories_list %}
+        {% assign name = category | first %}
+        {% assign posts = category | last %}
+        <li>
+          <a href="{{ site.baseurl }}/category/{{ name | url_encode }}/">{{ name | capitalize }}</a>
+          <span class="text-body-secondary">({{ posts | size }})</span>
+        </li>
         {% endfor %}
     </ol>
-</div>
+    <small class="text-muted">Browse posts by topic</small>
+    </div>
 
 <div class="p-4">
     <h4 class="fst-italic">Elsewhere</h4>

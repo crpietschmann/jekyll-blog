@@ -2,12 +2,24 @@
 layout: default
 ---
 
-<h1>{{ page.type }}: {{ page.title }}</h1>
-<ul class="posts">
-  {% for post in page.posts %}
-    <li>
-      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<div role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h1 class="pb-3 border-bottom text-capitalize">{{ page.type }}: {{ page.title }}</h1>
+      <div class="list-group list-group-flush">
+        {% for post in page.posts %}
+        <a class="list-group-item list-group-item-action" href="{{ post.url | prepend: site.baseurl }}">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ post.title }}</h5>
+            <small class="text-body-secondary">{{ post.date | date: "%b %-d, %Y" }}</small>
+          </div>
+          {% if post.excerpt %}
+          <p class="mb-1 text-body-secondary">{{ post.excerpt | strip_html | truncate: 160, "..." }}</p>
+          {% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% include sidebar.html %}
+  </div>
+  </div>

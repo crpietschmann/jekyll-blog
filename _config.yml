@@ -44,7 +44,7 @@ jekyll-archives:
   enabled:
     - tags
     - categories
-  layout:
+  layouts:
     tag: tag
     category: category
   permalinks:
