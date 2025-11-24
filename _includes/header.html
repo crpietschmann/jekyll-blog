@@ -12,7 +12,7 @@
           </li>
           {% for category in site.categories limit:5 %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ site.baseurl }}/category/{{ category | first | url_encode }}/">{{ category | first | capitalize }}</a>
+            <a class="nav-link" href="{{ site.baseurl }}/category/{{ category | first | downcase |url_encode }}/">{{ category | first | capitalize }}</a>
           </li>
           {% endfor %}
         </ul>

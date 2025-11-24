@@ -32,7 +32,7 @@
         {% assign name = category | first %}
         {% assign posts = category | last %}
         <li>
-          <a href="{{ site.baseurl }}/category/{{ name | url_encode }}/">{{ name | capitalize }}</a>
+          <a href="{{ site.baseurl }}/category/{{ name | downcase | url_encode }}/">{{ name | capitalize }}</a>
           <span class="text-body-secondary">({{ posts | size }})</span>
         </li>
         {% endfor %}
