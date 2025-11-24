@@ -5,53 +5,79 @@
 layout: default
 ---
 
-<div class="container">
-  <div class="p-4 p-md-5 text-white rounded bg-dark">
-    {% for post in site.posts limit: 1 %}
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">{{ post.title }}</h1>
-      <p class="lead my-3">{% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 200, "..." }}{% endif %}</p>
-      <p class="lead mb-0"><a href="{{ post.url | prepend: site.baseurl }}" class="text-white fw-bold">read more</a></p>
-    </div>
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {% for post in site.posts limit:3 %}
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.index }}"></button>
     {% endfor %}
   </div>
-
-  <div class="row mb-2">
-    {% for post in site.posts limit: 2 %}
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">{{ post.categories[0] }}</strong>
-          <h3 class="mb-0">{{ post.title }}</h3>
-          <div class="mb-1 text-muted">{{ post.date | date: "%b %-d, %Y" }}</div>
-          <p class="card-text mb-auto">{% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 100, "..." }}{% endif %}</p>
-          <a href="{{ post.url | prepend: site.baseurl }}" class="stretched-link">read more</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+  <div class="carousel-inner">
+    {% for post in site.posts limit:3 %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      <div class="container">
+        <div class="carousel-caption {% if forloop.index == 1 %}text-start{% elsif forloop.index == 3 %}text-end{% endif %}">
+          <h1>{{ post.title }}</h1>
+          <p class="opacity-75">{% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 150, "..." }}{% endif %}</p>
+          <p><a class="btn btn-lg btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read more</a></p>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-<div role="main" class="container">
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
   <div class="row">
-    <div class="col-md-8 blog-main">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        Recent Posts
-      </h3>
-      {% for post in site.posts limit: 5 %}
-          <div class="blog-post">
-            <h1 class="blog-post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
-            <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% else %} • {{ site.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
-            {{ post.excerpt }}
-            <br/>
-            <a href="{{ post.url | prepend: site.baseurl }}">read more</a>
-          </div><!-- /.blog-post -->
-      {% endfor %}
-    </div><!-- /.blog-main -->
-    {% include sidebar.html %}
+    {% for post in site.posts offset:3 limit:3 %}
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      <h2 class="fw-normal">{{ post.title | truncate: 40 }}</h2>
+      <p>{% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 120, "..." }}{% endif %}</p>
+      <p><a class="btn btn-secondary" href="{{ post.url | prepend: site.baseurl }}">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    {% endfor %}
   </div><!-- /.row -->
+
+  <!-- START THE FEATURETTES -->
+
+  <hr class="featurette-divider">
+
+  {% assign featurette_posts = site.posts | offset: 6 | limit: 3 %}
+  {% for post in featurette_posts %}
+  <div class="row featurette">
+    <div class="col-md-7 {% if forloop.index == 2 %}order-md-2{% endif %}">
+      <h2 class="featurette-heading fw-normal lh-1">{{ post.title }} <span class="text-body-secondary">{% if post.categories[0] %}{{ post.categories[0] | capitalize }}{% endif %}</span></h2>
+      <p class="lead">{% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 200, "..." }}{% endif %}</p>
+      <p><a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read full article</a></p>
+    </div>
+    <div class="col-md-5 {% if forloop.index == 2 %}order-md-1{% endif %}">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+    </div>
+  </div>
+
+  {% unless forloop.last %}
+  <hr class="featurette-divider">
+  {% endunless %}
+  {% endfor %}
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
 </div><!-- /.container -->
