@@ -6,12 +6,12 @@ layout: default
 ---
 
 <div class="container">
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+  <div class="p-4 p-md-5 text-white rounded bg-dark">
     {% for post in site.posts limit: 1 %}
     <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">{{ post.title }}</h1>
+      <h1 class="display-4 fst-italic">{{ post.title }}</h1>
       <p class="lead my-3">{% if post.excerpt %}{{ post.excerpt | strip_html | truncate: 200, "..." }}{% endif %}</p>
-      <p class="lead mb-0"><a href="{{ post.url | prepend: site.baseurl }}" class="text-white font-weight-bold">read more</a></p>
+      <p class="lead mb-0"><a href="{{ post.url | prepend: site.baseurl }}" class="text-white fw-bold">read more</a></p>
     </div>
     {% endfor %}
   </div>
@@ -19,7 +19,7 @@ layout: default
   <div class="row mb-2">
     {% for post in site.posts limit: 2 %}
     <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">{{ post.categories[0] }}</strong>
           <h3 class="mb-0">{{ post.title }}</h3>
@@ -39,7 +39,7 @@ layout: default
 <div role="main" class="container">
   <div class="row">
     <div class="col-md-8 blog-main">
-      <h3 class="pb-4 mb-4 font-italic border-bottom">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
         Recent Posts
       </h3>
       {% for post in site.posts limit: 5 %}
