@@ -4,18 +4,22 @@ permalink: /search.json
 sitemap: false
 ---
 [
-  {% assign all = site.posts | concat: site.pages %}
-  {% for doc in all %}
-    {% assign title = doc.title | append: '' %}
-    {% assign url = doc.url | append: '' %}
-    {% if title != '' and url != '' and url != '/search.json' and (url contains 'sitemap.xml') == false %}
+  {% comment %}Combine posts & pages, then include only documents with a title and valid url excluding utility endpoints{% endcomment %}
+  {% assign docs = site.posts | concat: site.pages %}
+  {% assign filtered = '' %}
+  {% for doc in docs %}
+    {% assign title = doc.title | to_s %}
+    {% assign url = doc.url | to_s %}
+    {% if title != '' and url != '' and url != '/search.json' and url != '/sitemap.xml' and url != '/robots.txt' and url != '/feed.xml' and url != '/redirects.json' %}
+      {% unless filtered == '' %},{% endunless %}
       {
         "title": {{ title | jsonify }},
         "url": {{ url | prepend: site.baseurl | jsonify }},
         "date": {{ doc.date | date_to_xmlschema | jsonify }},
         "categories": {{ doc.categories | default: empty | jsonify }},
-        "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}
-      }{% unless forloop.last %},{% endunless %}
+        "content": {{ doc.content | strip_html | jsonify }}
+      }
+      {% assign filtered = 'added' %}
     {% endif %}
   {% endfor %}
 ]
