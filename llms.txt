@@ -7,7 +7,7 @@ layout: null
 
 ## Articles
 {% for post in site.posts | sort: 'date' | reverse %}
-- [{{ post.title }}]({{ site.url }}{{ site.baseurl}}{{ post.url }}): {{ post.excerpt | strip_newlines }}
+- [{{ post.title }}]({{ site.url }}{{ site.baseurl}}{{ post.url }}): {{ post.excerpt | strip_newlines | strip_html }}
 {% endfor %}
 
 ## Categories
