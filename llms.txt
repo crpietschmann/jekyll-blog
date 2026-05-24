@@ -1,0 +1,11 @@
+---
+layout: null
+---
+# {{ site.title }}
+
+{{ site.description }}
+
+## Most Recent Articles
+{% for post in site.posts | sort: 'date' | reverse %}
+- [{{ post.title }}]({{ site.url }}{{ post.url }})
+{% endfor %}
