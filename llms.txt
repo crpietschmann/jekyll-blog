@@ -5,14 +5,19 @@ layout: null
 
 {{ site.description }}
 
-## Most Recent Articles
+## Articles
 {% for post in site.posts | sort: 'date' | reverse %}
-- [{{ post.title }}]({{ site.url }}{{ post.url }})
+- [{{ post.title }}]({{ site.url }}{{ site.base_url}}{{ post.url }})
+{% endfor %}
+
+## Categories
+{% for category in site.categories %}
+- [{{ category[0] }}]({{ site.url}}{{ site.base_url}}/category/{{ category[0] | uri_escape }})
 {% endfor %}
 
 ## Resources
-- [Privacy]({{ site.baseurl }}/privacy)
-- [Terms]({{ site.baseurl }}/terms)
+- [Privacy]({{ site.url }}{{ site.baseurl }}/privacy)
+- [Terms]({{ site.url }}{{ site.baseurl }}/terms)
 
 ## Copyright
-&copy; {% if site.time %}{{ site.time | date: '%Y' }}{% else %}2026{% endif %} {{ site.title }}
+Copyright {% if site.time %}{{ site.time | date: '%Y' }}{% else %}2026{% endif %} {{ site.title }}
