@@ -9,3 +9,10 @@ layout: null
 {% for post in site.posts | sort: 'date' | reverse %}
 - [{{ post.title }}]({{ site.url }}{{ post.url }})
 {% endfor %}
+
+## Resources
+- [Privacy]({{ site.baseurl }}/privacy)
+- [Terms]({{ site.baseurl }}/terms)
+
+## Copyright
+&copy; {% if site.time %}{{ site.time | date: '%Y' }}{% else %}2026{% endif %} {{ site.title }}
