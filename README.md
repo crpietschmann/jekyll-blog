@@ -70,7 +70,8 @@ That's it! Every push to `main` will build and deploy your site with full plugin
 ├── js/                  # JavaScript (search functionality)
 ├── search.html          # Search results page
 ├── search.json          # Search index (auto-generated)
-└── index.md             # Homepage with carousel
+├── index.md             # Homepage with carousel
+└── llms.txt             # Information to help LLMs (https://llmstxt.org)
 ```
 
 ## Plugins Used
