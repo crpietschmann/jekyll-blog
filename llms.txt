@@ -7,7 +7,7 @@ layout: null
 
 ## Articles
 {% for post in site.posts | sort: 'date' | reverse %}
-- [{{ post.title }}]({{ site.url }}{{ site.baseurl}}{{ post.url }})
+- [{{ post.title }}]({{ site.url }}{{ site.baseurl}}{{ post.url }}): {{ post.excerpt | strip_newlines }}
 {% endfor %}
 
 ## Categories
@@ -16,8 +16,9 @@ layout: null
 {% endfor %}
 
 ## Resources
-- [Privacy]({{ site.url }}{{ site.baseurl }}/privacy)
-- [Terms]({{ site.url }}{{ site.baseurl }}/terms)
+- [Privacy]({{ site.url }}{{ site.baseurl }}/privacy): Privacy policy
+- [Terms]({{ site.url }}{{ site.baseurl }}/terms): Site terms
 
 ## Copyright
+
 Copyright {% if site.time %}{{ site.time | date: '%Y' }}{% else %}2026{% endif %} {{ site.title }}
